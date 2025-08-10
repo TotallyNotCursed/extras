@@ -15,7 +15,7 @@ public class CustomCapeRegistry {
   public static void register() {
     LOGGER.info("Registering custom capes");
 
-    // ItsSiMoon
+    // HeySiMoon
     CUSTOM_CAPES.put(
         UUID.fromString("aad4e22e-b66d-4d09-a574-d79c643ee28d"),
         ModUtils.getResourceLocation("textures/cape/red_creeper.png"));
