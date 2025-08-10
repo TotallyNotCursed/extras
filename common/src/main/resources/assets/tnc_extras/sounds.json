@@ -1,0 +1,32 @@
+{
+  "item.armor.equip_coldvein": {
+    "sounds": [
+      {
+        "name": "tnc_extras:item/armor/equip_coldvein1"
+      },
+      {
+        "name": "tnc_extras:item/armor/equip_coldvein2"
+      },
+      {
+        "name": "tnc_extras:item/armor/equip_coldvein3"
+      }
+    ],
+    "subtitle": "subtitles.tnc_extras.item.armor.equip_coldvein"
+  },
+  "item.pullstone_ring.use": {
+    "sounds": [
+      {
+        "name": "tnc_extras:item/pullstone_ring/use"
+      }
+    ],
+    "subtitle": "subtitles.tnc_extras.item.pullstone_ring.use"
+  },
+  "item.sanctified_nova.use": {
+    "sounds": [
+      {
+        "name": "tnc_extras:item/sanctified_nova/use"
+      }
+    ],
+    "subtitle": "subtitles.tnc_extras.item.sanctified_nova.use"
+  }
+}

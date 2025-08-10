@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "xyz.splack.tnc.extras.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "CustomCapeMixin"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

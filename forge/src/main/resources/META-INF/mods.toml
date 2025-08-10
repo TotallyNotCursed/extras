@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+
+license = "All Rights Reserved"
+issueTrackerURL = "https://github.com/TotallyNotCursed/extras/issues"
+
+[[mods]]
+modId = "tnc_extras"
+version = "${version}"
+displayName = "Totally Not Cursed Extras"
+displayURL = "https://github.com/TotallyNotCursed"
+logoFile = "assets/tnc_extras/logo.png"
+authors = "The Totally Not Cursed team and contributors"
+description = '''${description}'''
+
+[[dependencies.tnc_extras]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.tnc_extras]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.tnc_extras]]
+modId = "architectury"
+mandatory = true
+versionRange = "[9.2.14,)"
+ordering = "AFTER"
+side = "BOTH"

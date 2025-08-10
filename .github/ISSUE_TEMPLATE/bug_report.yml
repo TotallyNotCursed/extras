@@ -1,0 +1,90 @@
+name: 🐛 Extras Mod Bug Report
+description: Report a bug haunting the extras mod!
+labels: [ "bug" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 👻 Extras Mod Bug Report: Something Creepy This Way Comes!
+        Thank you for helping us exorcise the bugs from the extras mod. Please fill out this form so we can investigate the supernatural disturbance!  
+        _The more details you provide, the faster we can send the bugs to the shadow realm..._
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: 💀 Describe the Bug
+      description: What sinister behavior did you encounter? Be as detailed as possible!
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: 🧟‍♂️ How to Summon the Bug
+      description: Step-by-step, how can we summon (reproduce) this bug?
+      value: |
+        1. 
+        2. 
+        3. 
+        ...
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 🖼️ Evidence (Screenshots or Videos)
+      description: If you captured the haunting on camera, please share your evidence!
+    validations:
+      required: false
+  - type: input
+    id: crash-report
+    attributes:
+      label: 📜 Crash Report or Log
+      description: If you have a crash report or log, please provide a **link** (Pastebin, Gist, etc). _Do not paste the whole log here!_
+    validations:
+      required: false
+  - type: input
+    id: os
+    attributes:
+      label: 🧑‍💻 Operating System
+      description: What system were you using when the bug appeared from the darkness?
+      placeholder: Windows 11, macOS 15, Ubuntu 24.04, etc.
+    validations:
+      required: true
+  - type: dropdown
+    id: mc-version
+    attributes:
+      label: 🕹️ Minecraft Version
+      description: Which version of Minecraft were you playing when the bug attacked?
+      options:
+        - "1.20.1"
+    validations:
+      required: true
+  - type: dropdown
+    id: modloader
+    attributes:
+      label: 🧩 Modloader
+      description: Which modloader were you using?
+      options:
+        - "Forge"
+        - "Fabric"
+    validations:
+      required: true
+  - type: input
+    id: extras-version
+    attributes:
+      label: 🏷️ Extras Mod Version
+      description: What version of the extras mod were you using? (e.g., 0.2.1)
+    validations:
+      required: true
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: 🧙‍♂️ Other Mods
+      description: Did you add any other mods to the cauldron? List them here!
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        🦇 Thank you for helping us keep the darkness at bay!  
+        _Your report helps us make the project less cursed for everyone._
