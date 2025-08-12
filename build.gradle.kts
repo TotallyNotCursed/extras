@@ -43,6 +43,21 @@ subprojects {
     java {
       googleJavaFormat("1.28.0")
       removeUnusedImports()
+
+      // F → f
+      replaceRegex(
+        "Float suffix to lowercase f", "(\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)[F]\\b", "$1f"
+      )
+
+      // D → d
+      replaceRegex(
+        "Double suffix to lowercase d", "(\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)[D]\\b", "$1d"
+      )
+
+      // L → l
+      replaceRegex(
+        "Long suffix to lowercase l", "(\\d+)[L]\\b", "$1l"
+      )
     }
   }
 
