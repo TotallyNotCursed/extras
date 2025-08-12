@@ -67,7 +67,7 @@ public class ModItems {
                 new ArmorItem(
                     ModArmorMaterials.COLDVEIN,
                     ArmorItem.Type.BOOTS,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_CHESTPLATE =
         ITEMS.register(
             "coldvein_chestplate",
@@ -75,7 +75,7 @@ public class ModItems {
                 new ArmorItem(
                     ModArmorMaterials.COLDVEIN,
                     ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_HELMET =
         ITEMS.register(
             "coldvein_helmet",
@@ -83,7 +83,7 @@ public class ModItems {
                 new ArmorItem(
                     ModArmorMaterials.COLDVEIN,
                     ArmorItem.Type.HELMET,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_LEGGINGS =
         ITEMS.register(
             "coldvein_leggings",
@@ -91,7 +91,7 @@ public class ModItems {
                 new ArmorItem(
                     ModArmorMaterials.COLDVEIN,
                     ArmorItem.Type.LEGGINGS,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
 
     // ===============================
     // Block items
@@ -103,34 +103,31 @@ public class ModItems {
             () ->
                 new BlockItem(
                     ModBlocks.COLDVEIN_ORE.get(),
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     DEEPSLATE_COLDVEIN_ORE =
         ITEMS.register(
             "deepslate_coldvein_ore",
             () ->
                 new BlockItem(
                     ModBlocks.DEEPSLATE_COLDVEIN_ORE.get(),
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
 
     // ===============================
     // Miscellaneous
     // ===============================
     COLDVEIN =
         ITEMS.register(
-            "coldvein",
-            () -> new Item(new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+            "coldvein", () -> new Item(new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     PULLSTONE_RING =
         ITEMS.register(
             "pullstone_ring",
             () ->
-                new PullstoneRingItem(
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                new PullstoneRingItem(new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     SANCTIFIED_NOVA =
         ITEMS.register(
             "sanctified_nova",
             () ->
-                new SanctifiedNovaItem(
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                new SanctifiedNovaItem(new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
 
     // ===============================
     // Spawn eggs
@@ -143,7 +140,7 @@ public class ModItems {
                     ModEntities.GOREYE,
                     0x000000,
                     0xFFFFFF,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_WIP)));
 
     // ===============================
     // Tools
@@ -156,7 +153,7 @@ public class ModItems {
                     ModToolMaterials.COLDVEIN,
                     5,
                     -3.0f,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_HOE =
         ITEMS.register(
             "coldvein_hoe",
@@ -165,7 +162,7 @@ public class ModItems {
                     ModToolMaterials.COLDVEIN,
                     -1,
                     -1.0f,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_PICKAXE =
         ITEMS.register(
             "coldvein_pickaxe",
@@ -174,7 +171,7 @@ public class ModItems {
                     ModToolMaterials.COLDVEIN,
                     1,
                     -2.8f,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_SHOVEL =
         ITEMS.register(
             "coldvein_shovel",
@@ -183,7 +180,7 @@ public class ModItems {
                     ModToolMaterials.COLDVEIN,
                     1.5f,
                     -3.0f,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
     COLDVEIN_SWORD =
         ITEMS.register(
             "coldvein_sword",
@@ -192,7 +189,7 @@ public class ModItems {
                     ModToolMaterials.COLDVEIN,
                     3,
                     -2.4f,
-                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS_TAB)));
+                    new Item.Properties().arch$tab(ModCreativeTabs.TNC_EXTRAS)));
 
     ITEMS.register();
     LOGGER.info("Items registered successfully");

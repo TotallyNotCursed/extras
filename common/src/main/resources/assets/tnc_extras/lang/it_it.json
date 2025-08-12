@@ -29,6 +29,7 @@
   "item.tnc_extras.sanctified_nova.tooltip": "Una reliquia di potere sacro. Scatenala per annientare tutti i non morti in un raggio massiccio di %s blocchi con una nova accecante e un'esplosione tuonante. Monouso. Non ha effetto sui viventi.",
   "item.tnc_extras.sanctified_nova.tooltip_warning": "Attenzione: Si consuma all'uso. Ha effetto solo sui mob non morti.",
   "itemGroup.tnc_extras": "Totally Not Cursed Extras",
+  "itemGroup.tnc_extras_wip": "Totally Not Cursed Extras (WIP)",
   "subtitles.tnc_extras.item.armor.equip_coldvein": "Armatura di sanguegelido crepita",
   "subtitles.tnc_extras.item.pullstone_ring.use": "Anello di pullstone attira",
   "subtitles.tnc_extras.item.sanctified_nova.use": "KABOOM!",

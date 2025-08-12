@@ -29,6 +29,7 @@
   "item.tnc_extras.sanctified_nova.tooltip": "A relic of holy power. Unleash to obliterate all undead in a massive %s-block radius with a blinding nova and thunderous blast. Single-use. Not effective on the living.",
   "item.tnc_extras.sanctified_nova.tooltip_warning": "Warning: Consumed on use. Only affects undead mobs.",
   "itemGroup.tnc_extras": "Totally Not Cursed Extras",
+  "itemGroup.tnc_extras_wip": "Totally Not Cursed Extras (WIP)",
   "subtitles.tnc_extras.item.armor.equip_coldvein": "Coldvein armor crackles",
   "subtitles.tnc_extras.item.pullstone_ring.use": "Pullstone Ring attracts",
   "subtitles.tnc_extras.item.sanctified_nova.use": "KABOOM!",
