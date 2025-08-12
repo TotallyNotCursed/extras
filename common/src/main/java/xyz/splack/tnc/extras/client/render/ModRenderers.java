@@ -14,8 +14,7 @@ public class ModRenderers {
   public static void register() {
     LOGGER.info("Registering entity renderers");
 
-    EntityRendererRegistry.register(
-        ModEntities.GOREYE, context -> new GoreyeRenderer(context, false));
+    EntityRendererRegistry.register(ModEntities.GOREYE, GoreyeRenderer::new);
 
     LOGGER.info("Entity renderers registered successfully");
   }
