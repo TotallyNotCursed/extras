@@ -43,7 +43,7 @@ public class ModItems {
   // ===============================
   // Spawn eggs
   // ===============================
-  public static RegistrySupplier<ArchitecturySpawnEggItem> GOREYE_SPAWN_EGG;
+  public static RegistrySupplier<Item> GOREYE_SPAWN_EGG;
 
   // ===============================
   // Tools
