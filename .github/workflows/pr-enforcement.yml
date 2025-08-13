@@ -31,6 +31,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: 'gradle'
 
       - name: Run Spotless Check
         run: ./gradlew spotlessCheck
