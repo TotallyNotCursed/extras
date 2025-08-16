@@ -1,8 +1,8 @@
-# ➕ Totally Not Cursed Extras
-
 > [!WARNING]
 > This mod is still in active development and has not yet reached a stable release. Expect bugs, incomplete
 > features, and potential world corruption. Always back up your worlds before playing!
+
+# ➕ Totally Not Cursed Extras
 
 A collection of extra features and enhancements for the Totally Not Cursed modpack. Not meant to be used standalone,
 but
