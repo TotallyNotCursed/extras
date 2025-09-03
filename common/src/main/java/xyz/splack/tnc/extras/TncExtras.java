@@ -1,10 +1,13 @@
 package xyz.splack.tnc.extras;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import net.minecraft.client.Minecraft;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.splack.tnc.extras.block.ModBlocks;
 import xyz.splack.tnc.extras.cape.CustomCapeRegistry;
-import xyz.splack.tnc.extras.check.ModpackCheck;
 import xyz.splack.tnc.extras.client.render.ModRenderers;
 import xyz.splack.tnc.extras.command.ModCommands;
 import xyz.splack.tnc.extras.entity.ModEntities;
@@ -19,17 +22,35 @@ public final class TncExtras {
   private static final Logger LOGGER = LoggerFactory.getLogger("TNC Extras");
 
   public static void init() {
-    ModpackCheck.ValidationResult result = ModpackCheck.validateModpack();
-    if (!result.isValid()) {
-      String errorMessage =
-          String.format(
-              "TNC Extras requires TNC Modpack %s. Issue: %s. Please install the correct modpack version.",
-              result.expectedVersion(), result.message());
-      LOGGER.error(errorMessage);
-      throw new IllegalStateException(errorMessage);
+    // Check if running with modpack
+    Path packVersionFile =
+        Minecraft.getInstance().gameDirectory.toPath().resolve(ModConstants.PACK_VERSION_FILE);
+
+    if (Files.exists(packVersionFile)) {
+      try {
+        String modpackVersion = Files.readString(packVersionFile).trim();
+        if (modpackVersion.isEmpty()) {
+          LOGGER.warn("Running with TNC Modpack (version unknown)");
+        } else {
+          LOGGER.info("Running with TNC Modpack {}", modpackVersion);
+
+          // Check version compatibility
+          if (!modpackVersion.equals(ModConstants.MOD_VERSION)) {
+            LOGGER.warn("Version mismatch detected!");
+            LOGGER.warn("TNC Extras version: {}", ModConstants.MOD_VERSION);
+            LOGGER.warn("TNC Modpack version: {}", modpackVersion);
+            LOGGER.warn("Some features may not work correctly with mismatched versions");
+          }
+        }
+      } catch (IOException e) {
+        LOGGER.warn("Could not read modpack version: {}", e.getMessage());
+      }
+    } else {
+      LOGGER.warn("Running standalone - install TNC Modpack for the full experience");
     }
 
-    LOGGER.info("Initializing TNC Extras for modpack {}", result.installedVersion());
+    // Continue with initialization
+    LOGGER.info("Initializing TNC Extras");
     ModBlocks.register();
     ModEntities.register();
     ModEntities.registerAttributes();
