@@ -55,9 +55,9 @@ public final class TncExtras {
     ModEntities.register();
     ModEntities.registerAttributes();
     ModCreativeTabs.register();
+    ModSounds.register();
     ModItems.register();
     ModOreFeatures.register();
-    ModSounds.register();
     ModRenderers.register();
     ModEvents.register();
     ModCommands.register();
