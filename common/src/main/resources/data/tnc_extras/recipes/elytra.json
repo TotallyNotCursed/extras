@@ -1,25 +1,25 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "FSF",
-    "PDP",
-    "F F"
-  ],
-  "key": {
-    "F": {
-      "item": "minecraft:feather"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "FSF",
+        "PDP",
+        "F F"
+    ],
+    "key": {
+        "F": {
+            "item": "minecraft:feather"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "P": {
+            "item": "minecraft:phantom_membrane"
+        },
+        "D": {
+            "item": "minecraft:diamond_chestplate"
+        }
     },
-    "S": {
-      "item": "minecraft:string"
-    },
-    "P": {
-      "item": "minecraft:phantom_membrane"
-    },
-    "D": {
-      "item": "minecraft:diamond_chestplate"
+    "result": {
+        "item": "minecraft:elytra"
     }
-  },
-  "result": {
-    "item": "minecraft:elytra"
-  }
 }

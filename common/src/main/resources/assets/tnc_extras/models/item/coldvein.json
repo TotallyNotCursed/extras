@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "tnc_extras:item/coldvein"
-  }
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "tnc_extras:item/coldvein"
+    }
 }

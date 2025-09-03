@@ -1,37 +1,37 @@
 {
-  "parent": "tnc_extras:root",
-  "display": {
-    "icon": {
-      "item": "tnc_extras:pullstone_ring"
+    "parent": "tnc_extras:root",
+    "display": {
+        "icon": {
+            "item": "tnc_extras:pullstone_ring"
+        },
+        "title": {
+            "translate": "advancement.tnc_extras.get_pullstone_ring.title"
+        },
+        "description": {
+            "translate": "advancement.tnc_extras.get_pullstone_ring.description"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
     },
-    "title": {
-      "translate": "advancement.tnc_extras.get_pullstone_ring.title"
+    "criteria": {
+        "obtain_pullstone_ring": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [
+                            "tnc_extras:pullstone_ring"
+                        ]
+                    }
+                ]
+            }
+        }
     },
-    "description": {
-      "translate": "advancement.tnc_extras.get_pullstone_ring.description"
-    },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true,
-    "hidden": false
-  },
-  "criteria": {
-    "obtain_pullstone_ring": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "tnc_extras:pullstone_ring"
-            ]
-          }
+    "requirements": [
+        [
+            "obtain_pullstone_ring"
         ]
-      }
-    }
-  },
-  "requirements": [
-    [
-      "obtain_pullstone_ring"
     ]
-  ]
 }

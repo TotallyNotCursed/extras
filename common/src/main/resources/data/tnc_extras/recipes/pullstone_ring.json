@@ -1,28 +1,28 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "AIG",
-    "LEL",
-    "GIG"
-  ],
-  "key": {
-    "A": {
-      "item": "minecraft:amethyst_shard"
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "AIG",
+        "LEL",
+        "GIG"
+    ],
+    "key": {
+        "A": {
+            "item": "minecraft:amethyst_shard"
+        },
+        "I": {
+            "item": "minecraft:iron_ingot"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "L": {
+            "item": "minecraft:lapis_lazuli"
+        },
+        "E": {
+            "item": "minecraft:ender_pearl"
+        }
     },
-    "I": {
-      "item": "minecraft:iron_ingot"
-    },
-    "G": {
-      "item": "minecraft:gold_ingot"
-    },
-    "L": {
-      "item": "minecraft:lapis_lazuli"
-    },
-    "E": {
-      "item": "minecraft:ender_pearl"
+    "result": {
+        "item": "tnc_extras:pullstone_ring"
     }
-  },
-  "result": {
-    "item": "tnc_extras:pullstone_ring"
-  }
 }

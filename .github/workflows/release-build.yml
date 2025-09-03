@@ -1,37 +1,37 @@
 name: Release Build
 
 on:
-  release:
-    types: [ created ]
+    release:
+        types: [ created ]
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  build-and-upload:
-    runs-on: ubuntu-latest
+    build-and-upload:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+        steps:
+            -   name: Checkout code
+                uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
+            -   name: Set up JDK
+                uses: actions/setup-java@v4
+                with:
+                    distribution: 'temurin'
+                    java-version: '17'
+                    cache: 'gradle'
 
-      - name: Build mod
-        run: ./gradlew build
+            -   name: Build mod
+                run: ./gradlew build
 
-      - name: Get version from tag
-        id: get_version
-        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            -   name: Get version from tag
+                id: get_version
+                run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-      - name: Upload mod artifact to release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: build/forgix/tnc_extras-${{ steps.get_version.outputs.version }}.jar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            -   name: Upload mod artifact to release
+                uses: softprops/action-gh-release@v2
+                with:
+                    files: build/forgix/tnc_extras-${{ steps.get_version.outputs.version }}.jar
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
