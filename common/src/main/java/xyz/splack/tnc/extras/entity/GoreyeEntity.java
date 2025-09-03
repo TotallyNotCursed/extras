@@ -17,7 +17,38 @@ import net.minecraft.world.phys.Vec3;
 import xyz.splack.tnc.extras.ModUtils;
 
 public class GoreyeEntity extends Mob {
-  private static int visibleTicks = 0;
+  private static final double ATTR_MAX_HEALTH = 45.0;
+  private static final double ATTR_MOVEMENT_SPEED = 0.25;
+  private static final double ATTR_MOVEMENT_SPEED_SEEN = 0.35;
+  private static final double ATTR_FOLLOW_RANGE = 32.0;
+  private static final double ATTR_KNOCKBACK_RESISTANCE = 1.0;
+
+  private static final int DETECTION_RADIUS = 20;
+  private static final double LOOK_DISTANCE = 10.0;
+  private static final double LOOK_ANGLE = 8.0;
+  private static final int VISIBLE_TICKS_DURATION = 100; // ticks (5s)
+  private static final double ATTACK_DISTANCE = 4.0;
+  private static final float ATTACK_DAMAGE = 6.0f;
+
+  private static final int SLOW_DURATION = 60;
+  private static final int SLOW_AMPLIFIER = 1;
+  private static final int BLINDNESS_DURATION = 40;
+  private static final int BLINDNESS_AMPLIFIER = 0;
+  private static final int WITHER_DURATION = 40;
+  private static final int WITHER_AMPLIFIER = 1;
+
+  private static final int AMBIENT_SOUND_CHANCE = 40; // 1 in N per tick check
+  private static final int TELEPORT_CHECK_INTERVAL = 60; // every N ticks
+  private static final double TELEPORT_MIN_DISTANCE = 4.0;
+  private static final double TELEPORT_MAX_DISTANCE = 16.0;
+  private static final double TELEPORT_STEP = 5.0;
+  private static final float TELEPORT_CHANCE = 0.3f;
+
+  private static final int PARTICLE_EVENT_ID = 10;
+  private static final int PARTICLE_SPAWN_INTERVAL = 20;
+  private static final int PARTICLE_SPAWN_COUNT = 5;
+
+  private int visibleTicks = 0;
 
   public GoreyeEntity(EntityType<? extends Mob> type, Level level) {
     super(type, level);
@@ -26,25 +57,25 @@ public class GoreyeEntity extends Mob {
 
   public static AttributeSupplier.Builder createAttributes() {
     return Mob.createMobAttributes()
-        .add(Attributes.MAX_HEALTH, 45.0) // High health
-        .add(Attributes.MOVEMENT_SPEED, 0.25) // Base speed
-        .add(Attributes.FOLLOW_RANGE, 32.0) // Large detection range
-        .add(Attributes.KNOCKBACK_RESISTANCE, 1.0); // Cannot be knocked back
+        .add(Attributes.MAX_HEALTH, ATTR_MAX_HEALTH)
+        .add(Attributes.MOVEMENT_SPEED, ATTR_MOVEMENT_SPEED)
+        .add(Attributes.FOLLOW_RANGE, ATTR_FOLLOW_RANGE)
+        .add(Attributes.KNOCKBACK_RESISTANCE, ATTR_KNOCKBACK_RESISTANCE);
   }
 
   @Override
   public void tick() {
     super.tick();
     boolean isSeen = false;
-    Player nearest = this.level().getNearestPlayer(this, 20);
+    Player nearest = this.level().getNearestPlayer(this, DETECTION_RADIUS);
     if (nearest != null && ModUtils.isNightOrDark(this)) {
       double distance = this.distanceTo(nearest);
 
       // Check if player is looking at the Goreye
-      isSeen = ModUtils.lookedAt(this, nearest, 10.0, 8.0);
+      isSeen = ModUtils.lookedAt(this, nearest, LOOK_DISTANCE, LOOK_ANGLE);
 
       if (isSeen) {
-        visibleTicks = 100; // Visible for 5 seconds
+        visibleTicks = VISIBLE_TICKS_DURATION; // Visible for configured duration
         this.level()
             .playSound(
                 null,
@@ -53,12 +84,15 @@ public class GoreyeEntity extends Mob {
                 SoundSource.HOSTILE,
                 0.8f,
                 1.0f); // Scream when spotted
-      } else if (distance < 4) {
+      } else if (distance < ATTACK_DISTANCE) {
         // Attack if close and unseen
-        nearest.hurt(this.level().damageSources().magic(), 6.0f);
-        nearest.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1));
-        nearest.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 40, 0));
-        nearest.addEffect(new MobEffectInstance(MobEffects.WITHER, 40, 1));
+        nearest.hurt(this.level().damageSources().magic(), ATTACK_DAMAGE);
+        nearest.addEffect(
+            new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, SLOW_DURATION, SLOW_AMPLIFIER));
+        nearest.addEffect(
+            new MobEffectInstance(MobEffects.BLINDNESS, BLINDNESS_DURATION, BLINDNESS_AMPLIFIER));
+        nearest.addEffect(
+            new MobEffectInstance(MobEffects.WITHER, WITHER_DURATION, WITHER_AMPLIFIER));
         this.level()
             .playSound(
                 null, blockPosition(), SoundEvents.ENDERMAN_STARE, SoundSource.HOSTILE, 1.0f, 0.7f);
@@ -66,7 +100,7 @@ public class GoreyeEntity extends Mob {
       } else {
         // Move toward player
         getNavigation().moveTo(nearest, 1.1);
-        if (this.level().random.nextInt(40) == 0) {
+        if (this.level().random.nextInt(AMBIENT_SOUND_CHANCE) == 0) {
           this.level()
               .playSound(
                   null,
@@ -77,10 +111,12 @@ public class GoreyeEntity extends Mob {
                   0.8f); // Ambient sound
         }
         // Teleport toward player sometimes
-        if (this.tickCount % 60 == 0 && distance > 4 && distance < 16) {
-          if (this.random.nextFloat() < 0.3f) {
+        if (this.tickCount % TELEPORT_CHECK_INTERVAL == 0
+            && distance > TELEPORT_MIN_DISTANCE
+            && distance < TELEPORT_MAX_DISTANCE) {
+          if (this.random.nextFloat() < TELEPORT_CHANCE) {
             Vec3 direction = nearest.position().subtract(this.position()).normalize();
-            Vec3 newPos = this.position().add(direction.scale(5.0));
+            Vec3 newPos = this.position().add(direction.scale(TELEPORT_STEP));
             if (this.level()
                 .noCollision(this, this.getBoundingBox().move(newPos.subtract(this.position())))) {
               this.teleportTo(newPos.x, newPos.y, newPos.z);
@@ -103,30 +139,31 @@ public class GoreyeEntity extends Mob {
       visibleTicks--;
       setInvisible(false);
       Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED))
-          .setBaseValue(0.35); // Faster when seen
+          .setBaseValue(ATTR_MOVEMENT_SPEED_SEEN); // Faster when seen
     } else {
       setInvisible(true);
       Objects.requireNonNull(this.getAttribute(Attributes.MOVEMENT_SPEED))
-          .setBaseValue(0.25); // Normal speed when unseen
+          .setBaseValue(ATTR_MOVEMENT_SPEED); // Normal speed when unseen
       // Spawn particles when invisible and stalking
       if (nearest != null && ModUtils.isNightOrDark(this) && !isSeen) {
-        if (this.tickCount % 20 == 0) {
-          this.level().broadcastEntityEvent(this, (byte) 10); // Trigger particle event
+        if (this.tickCount % PARTICLE_SPAWN_INTERVAL == 0) {
+          this.level()
+              .broadcastEntityEvent(this, (byte) PARTICLE_EVENT_ID); // Trigger particle event
         }
       }
     }
 
     // Despawn during daylight or in bright areas
-    if (ModUtils.isNightOrDark(this)) {
+    if (!ModUtils.isNightOrDark(this)) {
       this.discard();
     }
   }
 
   @Override
   public void handleEntityEvent(byte id) {
-    if (id == 10) {
+    if (id == PARTICLE_EVENT_ID) {
       // Spawn smoke particles to hint at presence
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < PARTICLE_SPAWN_COUNT; i++) {
         this.level()
             .addParticle(
                 ParticleTypes.SMOKE,
