@@ -1,6 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "tnc_extras:item/pullstone_ring"
-    }
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tnc_extras:item/pullstone_ring"
+  }
 }

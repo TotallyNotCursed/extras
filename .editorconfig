@@ -1,21 +1,29 @@
 root = true
 
+# Global defaults for all files
 [*]
-# Indentation
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
 indent_style = space
+
+# Kotlin, Kotlin Script, Windows batch files
+[*.{kt,kts,bat}]
 indent_size = 4
 
-# Charset
-charset = utf-8
-
-# End of line
-end_of_line = lf
-
-# Insert a newline at the end of files
-insert_final_newline = true
-
-# Trim trailing whitespace
-trim_trailing_whitespace = true
-
-[*.md]
+# JSON, YAML, XML, shell scripts, Markdown
+[*.{json,yml,yaml,xml,sh,bash,md}]
 indent_size = 2
+
+# Windows batch files
+[*.bat]
+end_of_line = crlf
+
+# Markdown files
+[*.md]
+trim_trailing_whitespace = false
+
+# Kotlin and Kotlin Script files
+[*.{kt,kts}]
+max_line_length = 120

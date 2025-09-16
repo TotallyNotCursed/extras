@@ -1,20 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " C ",
-        " S ",
-        " S "
-    ],
-    "key": {
-        "C": {
-            "item": "tnc_extras:coldvein"
-        },
-        "S": {
-            "item": "minecraft:stick"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "C": {
+      "item": "tnc_extras:coldvein"
     },
-    "result": {
-        "item": "tnc_extras:coldvein_shovel"
+    "S": {
+      "item": "minecraft:stick"
     }
+  },
+  "result": {
+    "item": "tnc_extras:coldvein_shovel"
+  }
 }
 

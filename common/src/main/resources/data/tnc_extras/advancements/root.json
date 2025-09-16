@@ -1,23 +1,23 @@
 {
-    "display": {
-        "icon": {
-            "item": "tnc_extras:sanctified_nova"
-        },
-        "title": {
-            "translate": "advancement.tnc_extras.root.title"
-        },
-        "description": {
-            "translate": "advancement.tnc_extras.root.description"
-        },
-        "background": "tnc_extras:textures/block/deepslate_coldvein_ore.png",
-        "frame": "task",
-        "show_toast": false,
-        "announce_to_chat": false,
-        "hidden": false
+  "display": {
+    "icon": {
+      "item": "tnc_extras:sanctified_nova"
     },
-    "criteria": {
-        "impossible": {
-            "trigger": "minecraft:impossible"
-        }
+    "title": {
+      "translate": "advancement.tnc_extras.root.title"
+    },
+    "description": {
+      "translate": "advancement.tnc_extras.root.description"
+    },
+    "background": "tnc_extras:textures/block/deepslate_coldvein_ore.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
     }
+  }
 }

@@ -1,17 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "C C",
-        "CCC",
-        "CCC"
-    ],
-    "key": {
-        "C": {
-            "item": "tnc_extras:coldvein"
-        }
-    },
-    "result": {
-        "item": "tnc_extras:coldvein_chestplate"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "C C",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "tnc_extras:coldvein"
     }
+  },
+  "result": {
+    "item": "tnc_extras:coldvein_chestplate"
+  }
 }
 

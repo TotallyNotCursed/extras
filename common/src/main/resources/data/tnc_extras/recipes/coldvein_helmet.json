@@ -1,16 +1,16 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "CCC",
-        "C C"
-    ],
-    "key": {
-        "C": {
-            "item": "tnc_extras:coldvein"
-        }
-    },
-    "result": {
-        "item": "tnc_extras:coldvein_helmet"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "C C"
+  ],
+  "key": {
+    "C": {
+      "item": "tnc_extras:coldvein"
     }
+  },
+  "result": {
+    "item": "tnc_extras:coldvein_helmet"
+  }
 }
 

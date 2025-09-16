@@ -1,43 +1,43 @@
 name: PR Enforcement (Develop Branch & Spotless Formatting)
 
 on:
-    pull_request:
+  pull_request:
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-    enforce-develop-branch:
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Ensure PR targets 'develop' branch
-                run: |
-                    if [ "${{ github.base_ref }}" != "develop" ]; then
-                      echo "Pull requests must target the 'develop' branch."
-                      exit 1
-                    fi
+  enforce-develop-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure PR targets 'develop' branch
+        run: |
+          if [ "${{ github.base_ref }}" != "develop" ]; then
+            echo "Pull requests must target the 'develop' branch."
+            exit 1
+          fi
 
-    spotless-check:
-        name: Spotless Format Check
-        runs-on: ubuntu-latest
-        needs: enforce-develop-branch
-        if: github.base_ref == 'develop'
-        steps:
-            -   name: Checkout code
-                uses: actions/checkout@v4
+  spotless-check:
+    name: Spotless Format Check
+    runs-on: ubuntu-latest
+    needs: enforce-develop-branch
+    if: github.base_ref == 'develop'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            -   name: Set up JDK
-                uses: actions/setup-java@v4
-                with:
-                    distribution: 'temurin'
-                    java-version: '17'
-                    cache: 'gradle'
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
 
-            -   name: Run Spotless Check
-                run: ./gradlew spotlessCheck
+      - name: Run Spotless Check
+        run: ./gradlew spotlessCheck
 
-            -   name: Fail if formatting issues found
-                if: failure()
-                run: |
-                    echo "Spotless formatting violations detected. Please run './gradlew spotlessApply' locally and commit the changes."
-                    exit 1
+      - name: Fail if formatting issues found
+        if: failure()
+        run: |
+          echo "Spotless formatting violations detected. Please run './gradlew spotlessApply' locally and commit the changes."
+          exit 1
