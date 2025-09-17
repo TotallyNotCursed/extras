@@ -37,7 +37,10 @@ relicensing, and no further consent will be needed.
 
 ## 🌱 Contributing
 
-Please make sure all code is formatted with Spotless before committing.  
+Please make sure all code is formatted with Spotless and follows OpenRewrite recipes before committing.
+
+### Code Formatting
+
 Format your code by running:
 
 ```
@@ -50,4 +53,18 @@ You can verify formatting with:
 ./gradlew spotlessCheck
 ```
 
-Pull requests that do not pass Spotless formatting will fail automated checks.
+### Code Quality
+
+Apply OpenRewrite recipes to improve code quality:
+
+```
+./gradlew rewriteRun
+```
+
+You can check for suggested improvements with:
+
+```
+./gradlew rewriteDryRun
+```
+
+Pull requests that do not pass Spotless formatting or OpenRewrite checks will fail automated checks.
