@@ -13,15 +13,14 @@ import xyz.splack.tnc.extras.entity.GoreyeEntity;
 
 @Environment(EnvType.CLIENT)
 public class GoreyeRenderer extends MobRenderer<GoreyeEntity, PlayerModel<GoreyeEntity>> {
-  private static final ResourceLocation GOREYE_TEXTURE =
-      ModUtils.getResourceLocation("textures/entity/goreye.png");
+    private static final ResourceLocation GOREYE_TEXTURE = ModUtils.getResourceLocation("textures/entity/goreye.png");
 
-  public GoreyeRenderer(EntityRendererProvider.Context context) {
-    super(context, new PlayerModel<>(context.bakeLayer(ModelLayers.PLAYER), false), 0.5f);
-  }
+    public GoreyeRenderer(EntityRendererProvider.Context context) {
+        super(context, new PlayerModel<>(context.bakeLayer(ModelLayers.PLAYER), false), 0.5f);
+    }
 
-  @Override
-  public @NotNull ResourceLocation getTextureLocation(GoreyeEntity entity) {
-    return GOREYE_TEXTURE;
-  }
+    @Override
+    public @NotNull ResourceLocation getTextureLocation(GoreyeEntity entity) {
+        return GOREYE_TEXTURE;
+    }
 }

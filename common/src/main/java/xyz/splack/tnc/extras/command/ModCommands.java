@@ -5,15 +5,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ModCommands {
-  private static final Logger LOGGER = LoggerFactory.getLogger("TNC Extras Command Registration");
+    private static final Logger LOGGER = LoggerFactory.getLogger("TNC Extras Command Registration");
 
-  public static void register() {
-    LOGGER.info("Registering commands");
+    public static void register() {
+        LOGGER.info("Registering commands");
 
-    // Register the TncCommand
-    CommandRegistrationEvent.EVENT.register(
-        (dispatcher, registryAccess, environment) -> TncCommand.register(dispatcher));
+        // Register the TncCommand
+        CommandRegistrationEvent.EVENT.register(
+                (dispatcher, registryAccess, environment) -> TncCommand.register(dispatcher));
 
-    LOGGER.info("Commands registered successfully");
-  }
+        LOGGER.info("Commands registered successfully");
+    }
 }

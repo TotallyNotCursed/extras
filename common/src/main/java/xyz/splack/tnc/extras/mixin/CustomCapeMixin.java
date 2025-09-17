@@ -20,23 +20,24 @@ import xyz.splack.tnc.extras.cape.CustomCapeRegistry;
 @Environment(EnvType.CLIENT)
 public abstract class CustomCapeMixin extends Player {
 
-  @Unique private final UUID tnc_extras$uuid = this.getUUID();
+    @Unique
+    private final UUID tnc_extras$uuid = this.getUUID();
 
-  public CustomCapeMixin(Level level, BlockPos pos, float yRot, GameProfile gameProfile) {
-    super(level, pos, yRot, gameProfile);
-  }
-
-  @Inject(method = "getCloakTextureLocation", at = @At("RETURN"), cancellable = true)
-  private void injectCloakTexture(CallbackInfoReturnable<ResourceLocation> cir) {
-    if (CustomCapeRegistry.hasCape(tnc_extras$uuid)) {
-      cir.setReturnValue(CustomCapeRegistry.getCape(tnc_extras$uuid));
+    public CustomCapeMixin(Level level, BlockPos pos, float yRot, GameProfile gameProfile) {
+        super(level, pos, yRot, gameProfile);
     }
-  }
 
-  @Inject(method = "getElytraTextureLocation", at = @At("RETURN"), cancellable = true)
-  private void injectElytraTexture(CallbackInfoReturnable<ResourceLocation> cir) {
-    if (CustomCapeRegistry.hasCape(tnc_extras$uuid)) {
-      cir.setReturnValue(CustomCapeRegistry.getCape(tnc_extras$uuid));
+    @Inject(method = "getCloakTextureLocation", at = @At("RETURN"), cancellable = true)
+    private void injectCloakTexture(CallbackInfoReturnable<ResourceLocation> cir) {
+        if (CustomCapeRegistry.hasCape(tnc_extras$uuid)) {
+            cir.setReturnValue(CustomCapeRegistry.getCape(tnc_extras$uuid));
+        }
     }
-  }
+
+    @Inject(method = "getElytraTextureLocation", at = @At("RETURN"), cancellable = true)
+    private void injectElytraTexture(CallbackInfoReturnable<ResourceLocation> cir) {
+        if (CustomCapeRegistry.hasCape(tnc_extras$uuid)) {
+            cir.setReturnValue(CustomCapeRegistry.getCape(tnc_extras$uuid));
+        }
+    }
 }

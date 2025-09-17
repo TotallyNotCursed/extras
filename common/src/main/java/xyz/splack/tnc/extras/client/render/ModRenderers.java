@@ -9,13 +9,13 @@ import xyz.splack.tnc.extras.entity.ModEntities;
 
 @Environment(EnvType.CLIENT)
 public class ModRenderers {
-  private static final Logger LOGGER = LoggerFactory.getLogger("TNC Extras Renderer Registration");
+    private static final Logger LOGGER = LoggerFactory.getLogger("TNC Extras Renderer Registration");
 
-  public static void register() {
-    LOGGER.info("Registering entity renderers");
+    public static void register() {
+        LOGGER.info("Registering entity renderers");
 
-    EntityRendererRegistry.register(ModEntities.GOREYE, GoreyeRenderer::new);
+        EntityRendererRegistry.register(ModEntities.GOREYE, GoreyeRenderer::new);
 
-    LOGGER.info("Entity renderers registered successfully");
-  }
+        LOGGER.info("Entity renderers registered successfully");
+    }
 }

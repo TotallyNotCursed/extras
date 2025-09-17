@@ -7,10 +7,10 @@ import xyz.splack.tnc.extras.TncExtras;
 
 @Mod(TncExtras.MOD_ID)
 public final class TncExtrasForge {
-  public TncExtrasForge(FMLJavaModLoadingContext context) {
-    var bus = context.getModEventBus();
-    EventBuses.registerModEventBus(TncExtras.MOD_ID, bus);
+    public TncExtrasForge(FMLJavaModLoadingContext context) {
+        var bus = context.getModEventBus();
+        EventBuses.registerModEventBus(TncExtras.MOD_ID, bus);
 
-    TncExtras.init();
-  }
+        TncExtras.init();
+    }
 }

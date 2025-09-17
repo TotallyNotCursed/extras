@@ -7,10 +7,10 @@ import xyz.splack.tnc.extras.command.tnc.LocateModOresCommand;
 import xyz.splack.tnc.extras.command.tnc.UuidCommand;
 
 public class TncCommand {
-  static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
-    var builder = Commands.literal("tnc");
-    UuidCommand.register(builder);
-    LocateModOresCommand.register(builder);
-    dispatcher.register(builder);
-  }
+    static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
+        var builder = Commands.literal("tnc");
+        UuidCommand.register(builder);
+        LocateModOresCommand.register(builder);
+        dispatcher.register(builder);
+    }
 }
