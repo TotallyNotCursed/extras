@@ -8,6 +8,7 @@ plugins {
     id("com.gradleup.shadow") version "8.3.6" apply false
     id("io.github.pacifistmc.forgix") version "2.0.0-SNAPSHOT.5.1"
     id("com.diffplug.spotless") version "7.2.1"
+    id("org.openrewrite.rewrite") version "7.16.0"
 }
 
 architectury {
@@ -18,6 +19,19 @@ architectury {
 forgix {
     autoRun = true
     silence = true
+}
+
+rewrite {
+    activeRecipe("org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes")
+    isExportDatatables = true
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.17.0")
 }
 
 allprojects {
@@ -41,23 +55,10 @@ subprojects {
 
     spotless {
         java {
-            googleJavaFormat("1.28.0")
+            palantirJavaFormat("2.74.0")
             removeUnusedImports()
-
-            // F → f
-            replaceRegex(
-                "Float suffix to lowercase f", "(\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)[F]\\b", "$1f"
-            )
-
-            // D → d
-            replaceRegex(
-                "Double suffix to lowercase d", "(\\d+(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)[D]\\b", "$1d"
-            )
-
-            // L → l
-            replaceRegex(
-                "Long suffix to lowercase l", "(\\d+)[L]\\b", "$1l"
-            )
+            endWithNewline()
+            trimTrailingWhitespace()
         }
     }
 
