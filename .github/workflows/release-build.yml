@@ -9,8 +9,8 @@ permissions:
 
 jobs:
   build-and-upload:
+    name: Build and Upload Release
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -22,14 +22,14 @@ jobs:
           java-version: '17'
           cache: 'gradle'
 
-      - name: Build mod
+      - name: Build project
         run: ./gradlew build
 
-      - name: Get version from tag
+      - name: Extract version from tag
         id: get_version
         run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-      - name: Upload mod artifact to release
+      - name: Upload artifact to release
         uses: softprops/action-gh-release@v2
         with:
           files: build/forgix/tnc_extras-${{ steps.get_version.outputs.version }}.jar
