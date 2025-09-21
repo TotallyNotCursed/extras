@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 public class UuidCommand {
     public static void register(LiteralArgumentBuilder<CommandSourceStack> builder) {
         builder.then(Commands.literal("uuid")
+                .requires(source -> true) // No permission required
                 .executes(context -> {
                     CommandSourceStack source = context.getSource();
                     if (source.getEntity() instanceof ServerPlayer player) {
