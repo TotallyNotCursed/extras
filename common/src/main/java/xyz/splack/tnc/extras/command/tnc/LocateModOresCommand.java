@@ -16,6 +16,7 @@ import xyz.splack.tnc.extras.block.ModBlocks;
 public class LocateModOresCommand {
     public static void register(LiteralArgumentBuilder<CommandSourceStack> builder) {
         builder.then(Commands.literal("locateModOres")
+                .requires(source -> source.hasPermission(2)) // Only allow with cheats enabled
                 .then(Commands.argument("radius", IntegerArgumentType.integer(1, 128))
                         .executes(context -> {
                             final CommandSourceStack source = context.getSource();
