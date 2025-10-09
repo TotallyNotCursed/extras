@@ -5,10 +5,10 @@ import net.fabricmc.loom.api.LoomGradleExtensionAPI
 plugins {
     id("dev.architectury.loom") version "1.10-SNAPSHOT" apply false
     id("architectury-plugin") version "3.4-SNAPSHOT"
-    id("com.gradleup.shadow") version "8.3.6" apply false
+    id("com.gradleup.shadow") version "9.2.2" apply false
     id("io.github.pacifistmc.forgix") version "2.0.0-SNAPSHOT.5.1"
-    id("com.diffplug.spotless") version "7.2.1"
-    id("org.openrewrite.rewrite") version "7.16.0"
+    id("com.diffplug.spotless") version "8.0.0"
+    id("org.openrewrite.rewrite") version "7.17.0"
 }
 
 architectury {
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.17.0")
+    rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.18.0")
 }
 
 allprojects {
@@ -55,7 +55,7 @@ subprojects {
 
     spotless {
         java {
-            palantirJavaFormat("2.74.0")
+            palantirJavaFormat("2.77.0")
             removeUnusedImports()
             endWithNewline()
             trimTrailingWhitespace()
