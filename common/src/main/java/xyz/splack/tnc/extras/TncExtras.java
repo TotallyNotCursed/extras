@@ -3,7 +3,6 @@ package xyz.splack.tnc.extras;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import net.minecraft.client.Minecraft;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.splack.tnc.extras.block.ModBlocks;
@@ -23,7 +22,8 @@ public final class TncExtras {
 
     public static void init() {
         // Check if running with modpack
-        Path packVersionFile = Minecraft.getInstance().gameDirectory.toPath().resolve(ModConstants.PACK_VERSION_FILE);
+        Path gameDir = ModUtils.getGameDirectory();
+        Path packVersionFile = gameDir.resolve(ModConstants.PACK_VERSION_FILE);
 
         if (Files.exists(packVersionFile)) {
             try {
