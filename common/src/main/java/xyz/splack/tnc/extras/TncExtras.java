@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import xyz.splack.tnc.extras.block.ModBlocks;
-import xyz.splack.tnc.extras.cape.CustomCapeRegistry;
+import xyz.splack.tnc.extras.cape.CapeEventHandler;
 import xyz.splack.tnc.extras.client.render.ModRenderers;
 import xyz.splack.tnc.extras.command.ModCommands;
 import xyz.splack.tnc.extras.entity.ModEntities;
@@ -60,7 +60,7 @@ public final class TncExtras {
         ModRenderers.register();
         ModEvents.register();
         ModCommands.register();
-        CustomCapeRegistry.register();
+        CapeEventHandler.register();
         LOGGER.info("TNC Extras initialized successfully");
     }
 }

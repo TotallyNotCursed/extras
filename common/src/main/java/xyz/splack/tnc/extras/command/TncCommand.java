@@ -3,6 +3,7 @@ package xyz.splack.tnc.extras.command;
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import xyz.splack.tnc.extras.command.tnc.CapeCommand;
 import xyz.splack.tnc.extras.command.tnc.LocateModOresCommand;
 import xyz.splack.tnc.extras.command.tnc.UuidCommand;
 
@@ -11,6 +12,7 @@ public class TncCommand {
         var builder = Commands.literal("tnc");
         UuidCommand.register(builder);
         LocateModOresCommand.register(builder);
+        CapeCommand.register(builder);
         dispatcher.register(builder);
     }
 }
